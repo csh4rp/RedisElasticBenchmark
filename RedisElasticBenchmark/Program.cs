@@ -87,15 +87,11 @@ namespace RedisElasticBenchmark
                     default:
                         break;
                 }
-
-                GetByDatesRedis().Wait();
-
+                
                 sw.Stop();
 
                 var elapsedRedis = sw.Elapsed;
-
-
-
+                
                 Console.WriteLine("Finished");
                 Console.WriteLine($"Redis time: {elapsedRedis}");
                 Console.WriteLine($"Elastic time: {elapsedElastic}");

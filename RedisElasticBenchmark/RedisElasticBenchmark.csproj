@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <AssemblyName>RedisElasticBenchmark</AssemblyName>
+        <RootNamespace>RedisElasticBenchmark</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="NEST" Version="7.7.1" />
+      <PackageReference Include="StackExchange.Redis" Version="2.1.55" />
+    </ItemGroup>
+
+</Project>

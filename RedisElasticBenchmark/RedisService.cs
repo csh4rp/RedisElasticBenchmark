@@ -18,7 +18,7 @@ namespace RedisElasticBenchmark
 
         public RedisService()
         {
-            _database = ConnectionMultiplexer.Connect("127.0.0.1").GetDatabase(0);
+            _database = ConnectionMultiplexer.Connect("127.0.0.1:6389").GetDatabase(0);
         }
         
         public async Task AddAsync(Model model)

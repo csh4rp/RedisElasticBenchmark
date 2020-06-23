@@ -4,7 +4,14 @@ services:
   redis:
     image: redis:latest
     ports:
-      - 6379:6379
+      - 6389:6379
+  mongo:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    environment:
+          MONGO_INITDB_ROOT_USERNAME: root
+          MONGO_INITDB_ROOT_PASSWORD: example
   el1:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.7.1
     container_name: el1
@@ -14,7 +21,7 @@ services:
       - discovery.seed_hosts=el2
       - cluster.initial_master_nodes=el1,el2
       - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms1024m -Xmx1024m"
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     ulimits:
       memlock:
         soft: -1
@@ -22,7 +29,7 @@ services:
     volumes:
       - data01:/usr/share/elasticsearch/data
     ports:
-      - 9200:9200
+      - 10200:9200
     networks:
       - elastic
   el2:
@@ -34,7 +41,7 @@ services:
       - discovery.seed_hosts=el1
       - cluster.initial_master_nodes=el1,el2
       - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms1024m -Xmx1024m"
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     ulimits:
       memlock:
         soft: -1
@@ -42,7 +49,7 @@ services:
     volumes:
       - data02:/usr/share/elasticsearch/data
     ports:
-      - 9201:9201
+      - 9202:9201
     networks:
       - elastic
 volumes:

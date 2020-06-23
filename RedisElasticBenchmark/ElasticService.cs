@@ -13,7 +13,7 @@ namespace RedisElasticBenchmark
 
         public ElasticService()
         {
-            _client = new ElasticClient(new Uri("http://localhost:9200"));
+            _client = new ElasticClient(new Uri("http://localhost:10200"));
         }
 
 
